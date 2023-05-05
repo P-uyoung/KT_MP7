@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'language/style.css' %}">
+<div class="one-box">
+{% for result in results %}
+    <div class="total-box">
+        <div class="image-box">
+            <img src="{{ result.image.url }}" width="200" height="200">
+        </div>
+        <div class="result-box">
+          예측 결과 : {{ result.result }}
+        </div>
+        <div class="answer-box">
+          정답  : {{ result.answer }}
+        </div>
+        <div class="correct-box">
+          정답 여부  : {{ result.is_correct_answer }}
+        </div>
+    </div>
+{% endfor %}
+</div>
