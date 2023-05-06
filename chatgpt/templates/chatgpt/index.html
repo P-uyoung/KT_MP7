@@ -1,44 +1,12 @@
 {% load static %}
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'language/style.css' %}">
-<script>
-    let idNum = 0;
-    function addFile(){
-        deepCopy();
-    }
-
-    function deepCopy()  {
-      // 'test' node 선택
-      const fileModule = document.getElementById('file-module-'+idNum);
-
-
-
-      // 노드 복사하기 (deep copy)
-      const newNode = fileModule.cloneNode(true);
-
-      console.log(newNode)
-
-      // 복사된 Node id 변경하기
-      idNum++;
-      newNode.id = 'file-module-' + idNum;
-
-      // 복사한 노드 붙여넣기
-      fileModule.after(newNode);
-    }
-</script>
+<link rel="stylesheet" href="{% static 'chatgtp/style.css' %}">
 {% endblock %}
-<form action="upload" method="post" enctype="multipart/form-data">
+<form action="chatgpt" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <span id="file-module-0">
-        <fieldset>
-            <legend><h1>파일 업로드</h1></legend>
-            <input name="files" type="file">
-
-        </fieldset>
-        <div>
-            정답 : <input name="answer" type="text">
-        </div>
+        <label>chatgtp에게 질문하기</label>
+        <textarea name="question"></textarea>
     </span>
-    <button onclick="addFile()" type="button">파일 추가 </button>
-    <div><input type="submit" value="업로드"></div>
+    <div><input type="submit" value="질문"></div>
 </form>
