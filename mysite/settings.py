@@ -130,4 +130,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MODEL_DIR = os.path.join(BASE_DIR, 'signlanguage/model')
 
-CSRF_TRUSTED_ORIGINS = ['https://carpediem.so']
+CSRF_TRUSTED_ORIGINS = ['https://*.carpediem.so']
