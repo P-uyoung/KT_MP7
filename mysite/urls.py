@@ -26,6 +26,7 @@ urlpatterns = [
     path('',index),
     path('signlanguage/',include('signlanguage.urls')),
     path('chatgpt/',include('chatgpt.urls')),
+    path('simplegpt/',include('simplegpt.urls')),
 ]
 
 from django.conf import settings

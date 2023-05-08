@@ -1,0 +1,51 @@
+form{
+    width: 500px;
+    margin: 0 auto;
+    border: 1px #ddd solid;
+    border-radius: 10px;
+    padding: 0px 20px 20px;
+}
+
+label{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 20px auto 10px;
+    font-weight: bold;
+    
+}
+
+textarea{
+    width: 100%;
+    border: 1px #ddd solid;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+#result{
+    text-align: center;
+    width: calc(100% - 20px);
+    display: block;
+    border: 1px #ddd solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    min-height: 30px;
+    font-size: 15px;
+}
+
+#result img{
+    box-shadow: 1px 1px 10px 0px rgba(10,10,10,0.5)
+}
+button{
+    width: 100%;
+    margin: 5px 0px;
+    padding: 7px;
+    background: #000;
+    border: 0;
+    border-radius:5px;
+    color: #fff;
+    font-size: 15px;
+    
+}
