@@ -1,0 +1,93 @@
+
+form{
+    width: 300px;
+    margin: 50px auto;
+    /* display: flex; */
+}
+
+form span{
+  display:block;
+  margin-bottom:10px
+}
+
+fieldset{
+    border: 1px #ddd solid;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+fieldset h1{
+    font-size:20px;
+    color:#10A37F
+    ;
+}
+
+input[type=file]{
+    color:#aaa;
+}
+
+input[type=file]::file-selector-button {
+  width: 150px;
+  height: 30px;
+  background: #10A37F;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+    color:#fff;
+  &:hover {
+    background: rgb(77,77,77);
+    color: #fff;
+  }
+}
+
+input[type=text]{
+    border: 1px #ddd solid;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    width: 85%;
+}
+
+input[type=submit]{
+border: 1px #ddd solid;
+    background: #10A37F;
+  color:#fff;
+  font-weight:bold;
+  font-size:14px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+div.one-box{
+  display:flex;
+  flex-wrap: wrap;
+  padding:20px;
+  
+}
+
+div.total-box{
+  margin:10px;
+  background:#edf8e7;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px #ddd solid;
+  padding:10px 10px 0px
+  
+}
+
+div.total-box img{
+  border-radius:10px;
+  border:1px #ddd solid;
+}
+
+div.total-box div{
+  margin-bottom:10px;
+  font-size:14px;
+  color:#333;
+  
+}

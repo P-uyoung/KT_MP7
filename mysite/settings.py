@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'signlanguage',
     'chatgpt',
     'simplegpt',
+    'signlanguagetochatgpt'
 ]
 
 MIDDLEWARE = [
