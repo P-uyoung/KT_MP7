@@ -13,7 +13,7 @@ def chatGPT(prompt):
         messages=[{"role": "user", "content": prompt}]
     )
     print(completion)
-    result = {completion.choices[0].message.content}
+    result = completion.choices[0].message.content
     return result
 
 #chatGPT에게 그림 요청 API
