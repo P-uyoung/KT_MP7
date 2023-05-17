@@ -11,8 +11,7 @@ import mlflow.keras
 from chatgpt.views import chatGPT
 logger = logging.getLogger('mylogger')
 #signlanguage/models.py의 Result 모델을 import한다.
-from signlanguage.models import Result
-from .models import ChatResult
+from .models import ChatResult, Result
 # Create your views here.
 
 '''
