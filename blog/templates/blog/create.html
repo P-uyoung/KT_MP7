@@ -1,9 +1,0 @@
-<h1>Post Create</h1>
-<form method="post">
-    {% csrf_token %}
-    <div><input type="text" name="title" maxlength="100"></div>
-    <div><textarea name="content" cols="40" rows="10"></textarea></div>
-    <div><input type="submit" value="저장"></div>
-</form>
-<hr>
-<a href="{% url 'blog:list' %}">리스트로</a>

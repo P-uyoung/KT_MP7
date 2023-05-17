@@ -1,5 +1,0 @@
-mlflow
-opencv-python
-Pillow
-Django
-openai
