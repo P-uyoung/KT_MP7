@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'signlanguage',
     'chatgpt',
     'simplegpt',
-    'signlanguagetochatgpt'
+    'signlanguagetochatgpt',
+    'blog',
 ]
 
 MIDDLEWARE = [

@@ -22,8 +22,9 @@ def index(request):
     return render(request,'index.html')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('',index),
+    path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),
     path('signlanguage/',include('signlanguage.urls')),
     path('chatgpt/',include('chatgpt.urls')),
     path('simplegpt/',include('simplegpt.urls')),
