@@ -2,7 +2,7 @@ from django.shortcuts import render
 import openai
 # Create your views here.
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 #chatGPT에게 채팅 요청 API
