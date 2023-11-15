@@ -1,27 +1,25 @@
 from django.shortcuts import render
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key="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")
 # Create your views here.
 
-openai.api_key = "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"
+
 
 
 #chatGPT에게 채팅 요청 API
 def chatGPT(prompt):
-    completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}]
-    )
+    completion = client.chat.completions.create(model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": prompt}])
     print(completion)
     result = completion.choices[0].message.content
     return result
 
 #chatGPT에게 그림 요청 API
 def imageGPT(prompt):
-    response = openai.Image.create(
-        prompt=prompt,
-        n=1,
-        size="256x256"
-    )
+    response = client.images.generate(prompt=prompt,
+    n=1,
+    size="256x256")
     result =response['data'][0]['url']
     return result
 
