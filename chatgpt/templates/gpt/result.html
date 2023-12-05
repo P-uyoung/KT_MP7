@@ -1,7 +1,19 @@
 {% load static %}
 {% block extrahead %}
-<link rel="stylesheet" href="{% static "gtp/chatgpt_result.css" %}">
+<link rel="stylesheet" href="{% static 'gtp/chatgpt_result.css' %}">
 {% endblock %}
+
+<!-- 디자인은 수정될 예정 -->
+<nav class="navbar">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="{% url 'home' %}" class="nav-link">
+                <img src="{% static 'icons/home-icon.png' %}" alt="Home" class="nav-icon"> 홈
+            </a>
+        </li>
+    </ul>
+</nav>
+
 <div class = "container">
     <div class = "ai_answer">
         <div>응답</div>
