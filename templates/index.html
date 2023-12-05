@@ -9,41 +9,43 @@
             <div class="col-lg-6 col-md-8 mx-auto">
                 <img class="img-fluid rounded" src="{% static 'images/sign-language.webp' %}" alt="sign-language">
             </div>
-              <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">수어 번역</h1>
+            <div class="col-lg-6 col-md-8 mx-auto d-flex flex-column justify-content-center">
+                <h1 class="fw-bold mb-3">수어 번역</h1>
                 <p class="lead text-body-secondary">ChatGPT와 연동하여 수어로 대화할 수 있는 기회를 제공합니다.</p>
-              </div>
+            </div>
             </div>
         </section>
     
         <div class="container custom-container">
-            <div class="row">
+            <div class="row justify-content-center my-5">
                 <!-- ChatGPT -->
-                <div class="col-6">
-                    <a href="/chatgpt/" class="text-decoration-none">
-                        <div class="border rounded p-3" style="border-color: grey;">
-                            <div class="row justify-content-start mb-2">
-                                <img class="img-fluid rounded" src="{% static 'images/gpt.png' %}" alt="ChatGPT" style="max-width: 100px; height: auto;">
+                <div class="col-5">
+                    <a href="/chatgpt/" class="text-decoration-none text-secondary">
+                        <div class="border rounded p-5" style="border-color: grey;">
+                            <div class="row justify-content-start mb-4">
+                                <img class="img-fluid rounded" src="{% static 'images/gpt.png' %}" alt="ChatGPT" style="width: auto; max-height: 120px;">
                             </div>
                             <div class="row justify-content-start mb-2">
-                                <span>ChatGPT API</span>
+                                <span class="fw-bold">ChatGPT</span>
                             </div>
                             <div class="row justify-content-start">
-                                <p>ChatGPT API를 사용하여 언어 모델과 대화하세요.</p>
+                                <p>ChatGPT를 사용하여 언어 모델과 대화하세요.</p>
                             </div>
                         </div>
                     </a>
                 </div>
-        
+
+                <div class="col-1"></div>
+
                 <!-- Sign Language ChatGPT -->
-                <div class="col-6">
-                    <a href="/signlanguagetochatgpt/" class="text-decoration-none">
-                        <div class="border rounded p-3" style="border-color: grey;">
-                            <div class="row justify-content-start mb-2">
-                                <img class="img-fluid rounded" src="{% static 'images/sign-lang-gpt.png' %}" alt="Sign Language ChatGPT" style="max-width: 100px; height: auto;">
+                <div class="col-5">
+                    <a href="/signlanguagetochatgpt/" class="text-decoration-none text-secondary">
+                        <div class="border rounded p-5" style="border-color: grey;">
+                            <div class="row justify-content-start mb-4">
+                                <img class="img-fluid rounded" src="{% static 'images/hand.png' %}" alt="Sign Language ChatGPT" style="width: auto; max-height: 120px;">
                             </div>
                             <div class="row justify-content-start mb-2">
-                                <span>수어-ChatGPT</span>
+                                <span class="fw-bold">수어 ChatGPT</span>
                             </div>
                             <div class="row justify-content-start">
                                 <p>수어와 ChatGPT를 연동하여 수어로 대화하세요.</p>
