@@ -1,0 +1,27 @@
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'gtp/style.css' %}">
+{% endblock %}
+<nav class="navbar">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="{% url 'home' %}" class="nav-link">
+                <img src="{% static 'icons/home-icon.png' %}" alt="Home" class="nav-icon"> 홈
+            </a>
+        </li>
+        <!-- 나머지 메뉴 아이템들 -->
+    </ul>
+</nav>
+
+<div class="form-container">
+    <form action="chat" method="post" enctype="application/x-www-form-urlencoded" class="chat-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="question">ChatGPT에게 요청하기</label>
+            <textarea id="question" name="question" class="textarea"></textarea>
+        </div>
+        <div class="form-group">
+            <button id="text-button" type="submit" class="submit-button">질문하기</button>
+        </div>
+    </form>
+</div>
