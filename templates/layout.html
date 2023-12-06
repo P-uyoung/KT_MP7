@@ -113,24 +113,26 @@
             }
         };
 
-        let currentLanguage = 'ko'; // 현재 언어 초기화
+        let currentLanguage = localStorage.getItem('language') || 'ko'; // 로컬 스토리지에서 언어 가져오기
+        changeLanguage(currentLanguage);
 
-        // 언어 변경 함수
-        document.querySelector('#change-language').addEventListener('click', function() {
-            changeLanguage(currentLanguage === 'ko' ? 'en' : 'ko');
+       // 언어 변경 함수
+        document.querySelector('#change-language').addEventListener('click', function () {
+            currentLanguage = currentLanguage === 'ko' ? 'en' : 'ko';
+            localStorage.setItem('language', currentLanguage); // 로컬 스토리지에 언어 저장
+            changeLanguage(currentLanguage);
         });
-        
+    
         function changeLanguage(language) {
-            currentLanguage = language;
             const aTags = document.querySelectorAll("[id*=lang]");
             // 각각의 a 태그에 대해 텍스트 변경
             aTags.forEach((aTag) => {
                 const id = aTag.id;
                 if (languages[language][id]) {
                     aTag.innerText = languages[language][id];
-                } 
+                }
             });
-        }    
+        }
     });
 </script>
 </html>
