@@ -16,12 +16,18 @@
   font-weight: bold;
   background-color: #DAE4DA;
   width: 70%;
-  height: 70%;
+  height: auto;
   border-radius: 10px;
 }
 
 .form {
   text-align: center;
+}
+
+.ai_result {
+  margin: 20px;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 textarea {
@@ -49,20 +55,21 @@ textarea {
   background-color: #a5bfb4;
 }
 
+
 .title {
-  height: 40%;
   font-weight: bold;
   margin: 20px;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
-#question{
-margin: 20px;
+.question{
+  margin: 20px;
 }
 
-#go_back{
-background-color: white;
-font-weight: bold;
+#text-button{
+  background-color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 

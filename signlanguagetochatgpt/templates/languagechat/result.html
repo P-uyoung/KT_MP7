@@ -1,34 +1,25 @@
+{% extends 'layout.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'languagechat/chat_style.css' %}">
-<div class="one-box">
-    <form action="chat" method="post" enctype="application/x-www-form-urlencoded">
-        {% csrf_token %}
-        <div class="flex-container">
-            <div class="item">
-                <div class="row gx-5">
-                    <!-- Image Column -->
-                    <div class="col-lg-6 mb-3">
-                        <div class="card h-100 shadow border-0">
-                            <img id="input-image" class="card-img-top" src="{{image_url}}" alt="입력 이미지"/>
-                        </div>
-                    </div>
-                    <!-- Text Column -->
-                    <div class="col-lg-6 mb-5">
-                        <div class="card h-100 shadow border-0">
-                            <div class="card-body p-4">
-                                <div class="mb-3">
-                                    <label>chatgtp에게 요청하기</label>
-                                    <textarea id="question" name="question">{{question}}</textarea>
-                                </div>
-                                <div>
-                                    <label>응답</label>
-                                    <span id="result" class="card-title mb-3"><strong>{{result}}</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{% block extrahead %}
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'languagechat/chat_style.css' %}">
+    <main class="flex-grow-1">
+        <div class="container">
+            <div class="inner_container">
+                <div class="image_container">
+                    {% if image_url %}
+                        <img id="input-image" class="card-img-top" src="{{image_url}}" alt="입력 이미지" style="width: 200px; height: auto;"/>
+                    {% else %}
+                        <p>이미지가 없습니다.</p>
+                    {% endif %}
                 </div>
+                <div class="ai_result">응답 : {{result}}</div>
+                <div class="title">
+                    <button type="submit" id="go_back" onclick="history.back()">이전으로 돌아가기</button>
+                </div>                               
             </div>
-        </div>      
-    </form>
-</div>
+        </div>
+    </main>
+{% endblock %}
