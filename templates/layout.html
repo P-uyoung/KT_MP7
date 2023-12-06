@@ -15,7 +15,7 @@
 <body class="d-flex flex-column h-100">
     <!-- Navbar -->
     <nav class="nav-footer-color navbar navbar-expand-lg fixed-top">
-        <a class="navbar-brand ps-5 fw-bold" href="/">Aivle 4기 16조</a>
+        <a id='langnav' class="navbar-brand ps-5 fw-bold" href="/">Aivle 4기 16조</a>
 
         <ul class="navbar-nav ms-auto pe-5 gap-4">
             <!-- Mode Selection -->
@@ -28,7 +28,7 @@
             </li>
 
             <!-- Language -->
-            <li class="nav-item d-flex align-items-center">
+            <li id="change-language" class="nav-item d-flex align-items-center">
                 <a class="nav-link p-0" href="#" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-type" viewBox="0 0 16 16">
                         <path d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081h1.244zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525"/>
@@ -44,9 +44,9 @@
                     </svg>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">회원가입</a></li>
+                    <li><a id='langsignin' class="dropdown-item" href="#">회원가입</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">로그인</a></li>
+                    <li><a id='langlogin' class="dropdown-item" href="#">로그인</a></li>
                 </ul>
             </li>
         </ul>
@@ -57,7 +57,7 @@
 
     <!-- Footer -->
     <div class="nav-footer-color container-fluid text-center py-3">
-        <p class="mb-0">&copy; Aivle 4기 16조</p>
+        <p id='langfooter' class="mb-0">&copy; Aivle 4기 16조</p>
     </div>
 </body>
 <!-- Bootstrap JS -->
@@ -65,6 +65,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // 다크 모드 설정
         document.querySelector('#mode-selection').addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
             
@@ -83,7 +84,53 @@
                 icon.classList.add('bi-moon');
             }
         });
+
+        // 언어 변경
+        const languages = {
+            "en": {
+                langnav: "Aivle 4th Team 16",
+                langsignin: "signin",
+                langlogin: "login",
+                langfooter: "\u00A9 Aivle 4th Team 16",
+                langtitle: "ChatGPT conversation with sign language.",
+                langdetail: "A new technology combining sign language has resulted in a ChatGPT conversational service using sign language. Providing a novel approach to accessing information for sign language users, it takes inclusivity in technology to the next level. Engage in a conversation using sign language with ChatGPT and explore a new way of interacting with information!",
+                langchatgpttitle: "ChatGPT.",
+                langchatgpt: "Conversation with ChatGPT.",
+                langchatgptsgintitle:"Sign Language ChatGPT",
+                langchatgptsgin: "Conversation with ChatGPT in sign language!",
+            },
+            "ko": {
+                langnav: "Aivle 4기 16조",
+                langsignin: "회원가입",
+                langlogin: "로그인",
+                langfooter: "\u00A9 Aivle 4기 16조",
+                langtitle: "수어를 통한 ChatGPT 대화",
+                langdetail:"새로운 기술의 결합으로 탄생한 수어를 이용한 ChatGPT 대화 서비스입니다. 수어 사용자들에게 새로운 정보 접근 방식을 제공하며, 기술의 포용성을 한 단계 높이고 있습니다. ChatGPT를 사용하여 수어를 사용해서 대화해 보세요!",
+                langchatgpt: "ChatGPT.",
+                langchatgpt: "ChatGPT를 사용하여 언어 모델과 대화해보세요!",
+                langchatgptsgintitle:"수어 ChatGPT",
+                langchatgptsgin: "수어로 ChatGPT와 대화해보세요!", 
+            }
+        };
+
+        let currentLanguage = 'ko'; // 현재 언어 초기화
+
+        // 언어 변경 함수
+        document.querySelector('#change-language').addEventListener('click', function() {
+            changeLanguage(currentLanguage === 'ko' ? 'en' : 'ko');
+        });
+        
+        function changeLanguage(language) {
+            currentLanguage = language;
+            const aTags = document.querySelectorAll("[id*=lang]");
+            // 각각의 a 태그에 대해 텍스트 변경
+            aTags.forEach((aTag) => {
+                const id = aTag.id;
+                if (languages[language][id]) {
+                    aTag.innerText = languages[language][id];
+                } 
+            });
+        }    
     });
 </script>
-
 </html>
