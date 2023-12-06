@@ -1,23 +1,23 @@
 
-
-body {
+.container {
     font-family: Arial, sans-serif;
-    background-color: #dae4d9; 
+    background-color: white; 
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    max-width: 100%;
+    height: 100%;
   }
-  
-  .container {
-    width: 50%;
-    background-color: #fff;
-    padding: 20px;
+
+  .inner_container {
+    font-weight: bold;
+    background-color: #DAE4DA;
+    width: 70%;
+    height: 70%;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 50%;
 }
   
   .form {
@@ -25,7 +25,7 @@ body {
   }
   
   textarea {
-    width: 100%;
+    width: 80%;
     height: 100px;
     margin-bottom: 10px;
     padding: 10px;
@@ -49,11 +49,22 @@ body {
     background-color: #a5bfb4;
   }
   
-  .title{
+  .title {
     height: 40%;
-    font-size: x-large;
     font-weight: bold;
-  }
+    margin: 20px;
+    font-size: xx-large;
+}
+
+#question{
+  margin: 20px;
+}
+
+#text-button{
+  background-color: white;
+  font-weight: bold;
+}
+
 
   /* 네비게이션 바 스타일 */
 .navbar {
