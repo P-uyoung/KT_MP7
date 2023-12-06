@@ -1,0 +1,20 @@
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: DodgerBlue;
+  }
+  
+  .flex-container > .item {
+    background-color: #f1f1f1;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .item img {
+      width: 100%; /* 이미지의 크기를 조절하려면 이 값을 변경하세요. */
+  }
+  
+  .contents {
+      width: 70%; /* contents 부분의 너비를 조절하려면 이 값을 변경하세요 */
+  }
+  

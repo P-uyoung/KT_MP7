@@ -107,7 +107,8 @@ def chat(request):
 
         context = {
         'question': selectedChatResult.prompt,
-        'result': selectedChatResult.content
+        'result': selectedChatResult.content,
+        'image_url': results[0].image.url if results else None
     }
 
     return render(request, 'languagechat/result.html', context)  
