@@ -2,7 +2,7 @@ from django.shortcuts import render
 from openai import OpenAI
 
 # client = OpenAI(api_key="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")
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 
 
 
