@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>Aivle 4기 16조</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
     <meta charset="utf-8">
     <!-- Custom CSS -->
     <link href="{% static 'css/layout.css' %}" rel="stylesheet">
@@ -30,8 +32,8 @@
             <!-- Language -->
             <li id="change-language" class="nav-item d-flex align-items-center">
                 <a class="nav-link p-0" href="#" >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-type" viewBox="0 0 16 16">
-                        <path d="m2.244 13.081.943-2.803H6.66l.944 2.803H8.86L5.54 3.75H4.322L1 13.081h1.244zm2.7-7.923L6.34 9.314H3.51l1.4-4.156zm9.146 7.027h.035v.896h1.128V8.125c0-1.51-1.114-2.345-2.646-2.345-1.736 0-2.59.916-2.666 2.174h1.108c.068-.718.595-1.19 1.517-1.19.971 0 1.518.52 1.518 1.464v.731H12.19c-1.647.007-2.522.8-2.522 2.058 0 1.319.957 2.18 2.345 2.18 1.06 0 1.716-.43 2.078-1.011zm-1.763.035c-.752 0-1.456-.397-1.456-1.244 0-.65.424-1.115 1.408-1.115h1.805v.834c0 .896-.752 1.525-1.757 1.525"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
                     </svg>
                 </a>
             </li>
@@ -93,7 +95,7 @@
                 langlogin: "login",
                 langfooter: "\u00A9 Aivle 4th Team 16",
                 langtitle: "ChatGPT conversation with sign language.",
-                langdetail: "A new technology combining sign language has resulted in a ChatGPT conversational service using sign language. Providing a novel approach to accessing information for sign language users, it takes inclusivity in technology to the next level. Engage in a conversation using sign language with ChatGPT and explore a new way of interacting with information!",
+                langdetail: "&nbsp;&nbsp;A new technology combining sign language has resulted in a ChatGPT conversational service using sign language. Providing a novel approach to accessing information for sign language users, it takes inclusivity in technology to the next level. Engage in a conversation using sign language with ChatGPT and explore a new way of interacting with information!",
                 langchatgpttitle: "ChatGPT.",
                 langchatgpt: "Conversation with ChatGPT.",
                 langchatgptsgintitle:"Sign Language ChatGPT",
@@ -105,7 +107,7 @@
                 langlogin: "로그인",
                 langfooter: "\u00A9 Aivle 4기 16조",
                 langtitle: "수어를 통한 ChatGPT 대화",
-                langdetail:"새로운 기술의 결합으로 탄생한 수어를 이용한 ChatGPT 대화 서비스입니다. 수어 사용자들에게 새로운 정보 접근 방식을 제공하며, 기술의 포용성을 한 단계 높이고 있습니다. ChatGPT를 사용하여 수어를 사용해서 대화해 보세요!",
+                langdetail:"&nbsp;&nbsp;새로운 기술의 결합으로 탄생한 수어를 이용한 ChatGPT 대화 서비스입니다. 수어 사용자들에게 새로운 정보 접근 방식을 제공하며, 기술의 포용성을 한 단계 높이고 있습니다. ChatGPT를 사용하여 수어를 사용해서 대화해 보세요!",
                 langchatgpt: "ChatGPT.",
                 langchatgpt: "ChatGPT를 사용하여 언어 모델과 대화해보세요!",
                 langchatgptsgintitle:"수어 ChatGPT",
@@ -131,8 +133,9 @@
                 if (languages[language][id]) {
                     aTag.innerText = languages[language][id];
                 }
-            });
+            }
+        )
         }
-    });
+    });        
 </script>
 </html>
