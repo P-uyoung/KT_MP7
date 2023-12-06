@@ -6,4 +6,5 @@ app_name = 'selfsignlanguagetochatgpt'
 urlpatterns = [
     path('', views.index, name='index'),
     path('chat', views.chat, name='chat'),
+    path('test', views.test, name='test'),
 ]

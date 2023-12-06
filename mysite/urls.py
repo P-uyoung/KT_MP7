@@ -22,12 +22,13 @@ def index(request):
     return render(request,'index.html')
 
 urlpatterns = [
-    path('',index),
+    path('',index, name='home'),
     path('admin/', admin.site.urls),
     path('chatgpt/',include('chatgpt.urls')),
     path('signlanguagetochatgpt/',include('signlanguagetochatgpt.urls')),
     path('selfchatgpt/',include('selfchatgpt.urls')),
     path('selfsignlanguagetochatgpt/',include('selfsignlanguagetochatgpt.urls')),
+    path('login/',include('login.urls')),
 ]
 
 from django.conf import settings

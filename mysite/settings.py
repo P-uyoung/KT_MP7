@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'signlanguagetochatgpt',
     'selfchatgpt',
     'selfsignlanguagetochatgpt',
+    'login'
 ]
 
 MIDDLEWARE = [

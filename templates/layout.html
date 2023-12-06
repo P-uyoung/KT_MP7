@@ -99,7 +99,10 @@
                 langchatgpttitle: "ChatGPT.",
                 langchatgpt: "Conversation with ChatGPT.",
                 langchatgptsgintitle:"Sign Language ChatGPT",
-                langchatgptsgin: "Conversation with ChatGPT in sign language!",                
+                langchatgptsgin: "Conversation with ChatGPT in sign language!",
+                langquestiontitle: 'ChatGPT', 
+                langtextbutton: "submit",    
+                langpquestion: 'Message ChatGPT...'           
             },
             "ko": {
                 langnav: "Aivle 4기 16조",
@@ -112,6 +115,9 @@
                 langchatgpt: "ChatGPT를 사용하여 언어 모델과 대화해보세요!",
                 langchatgptsgintitle:"수어 ChatGPT",
                 langchatgptsgin: "수어로 ChatGPT와 대화해보세요!", 
+                langquestiontitle: 'ChatGPT에게 질문하기',                
+                langtextbutton: "질문",        
+                langpquestion: "질문을 입력해주세요.",       
             }
         };
 
@@ -126,15 +132,21 @@
         });
     
         function changeLanguage(language) {
-            const aTags = document.querySelectorAll("[id*=lang]");
+            const Tags = document.querySelectorAll("[id*=lang]");
+            const placeTags = document.querySelectorAll("[id*=langp]");
             // 각각의 a 태그에 대해 텍스트 변경
-            aTags.forEach((aTag) => {
-                const id = aTag.id;
+            Tags.forEach((tag) => {
+                const id = tag.id;
                 if (languages[language][id]) {
-                    aTag.innerText = languages[language][id];
+                    tag.innerText = languages[language][id];
                 }
-            }
-        )
+            })
+            placeTags.forEach((tag) => {
+                const id = tag.id;
+                if (languages[language][id]) {
+                    tag.placeholder = languages[language][id];
+                }
+            })
         }
     });        
 </script>
