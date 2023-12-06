@@ -1,14 +1,10 @@
 {% extends 'layout.html' %}
 {% load static %}
 
-{% block extrahead %}
-    {{ block.super }}
-    <link href="{% static 'css/styles.css' %}" rel='stylesheet'>
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-{% endblock %}
-
 {% block content %}
-  <div class="login">
+  <link href="{% static 'css/styles.css' %}" rel='stylesheet'>
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <div class="login">
     <div class="login__content">
       <div class="login__img">
         <img src="https://image.freepik.com/free-vector/code-typing-concept-illustration_114360-3581.jpg" alt="user login">
