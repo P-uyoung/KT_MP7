@@ -28,6 +28,7 @@ urlpatterns = [
     path('signlanguagetochatgpt/',include('signlanguagetochatgpt.urls')),
     path('selfchatgpt/',include('selfchatgpt.urls')),
     path('selfsignlanguagetochatgpt/',include('selfsignlanguagetochatgpt.urls')),
+    path('login/',include('login.urls')),
 ]
 
 from django.conf import settings

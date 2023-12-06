@@ -3,22 +3,64 @@
 {% block extrahead %}
 {% endblock %}
 
-<!-- 디자인은 수정될 예정 -->
-
 {% block content %}
     <link rel="stylesheet" href="{% static 'gtp/chatgpt_result.css' %}">
     <main class="flex-grow-1">
         <div class = "container">
             <div class = "inner_container">
-                <div class="ai_result">응답 : {{result}}</div>
-                <div class = "title">ChatGPT에게 다시 질문하기</div>
-                <form class = "form" action="chat" method="post" entype="application/x-www-form-urlencoded">
-                    {% csrf_token %}
-                        <div><textarea id="question" name="question" placeholder="질문을 입력해주세요."></textarea></div>
-                        <div><button id="text-button" type="submit" >질문</button></div>
+
+                <!-- 세션 또는 주제 선택 -->
+                <form action="{% url 'chatgpt:chat' %}" method="get">
+                    <select name="session_id">
+                        {% for session_id in sessions %}
+                            <option value="{{ session_id }}">{{ session_id }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">세션 선택</button>
                 </form>
+
+                <!-- 새로 추가된 부분: 이전 대화 내용 표시 -->
+                <div class="chat_history">
+                    {% for chat in chat_history %}
+                        <div class="user_message">User: {{ chat.user_message }}</div>
+                        <div class="gpt_response">GPT: {{ chat.gpt_response }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- "이어서 질문하기" 폼 -->
+                <form class="form" action="{% url 'chatgpt:chat' %}" method="post" entype="application/x-www-form-urlencoded">
+                    {% csrf_token %}
+                    <div><textarea id="question" name="question" placeholder="질문을 입력해주세요."></textarea></div>
+                    <div class="button-container">
+                        <button class="button-class" id="continue-button" type="submit">이어서 질문</button>
+                    </div>
+                </form>
+
+                <!-- "새 채팅창" 폼 -->
+                <form class="form" action="{% url 'chatgpt:chat' %}" method="post" entype="application/x-www-form-urlencoded">
+                    {% csrf_token %}
+                    <div class="button-container">
+                        <button class="button-class" id="new-chat-button" type="submit">새 채팅창</button>
+                    </div>
+                </form>
+{% comment %} 
+
+                <form class="form" action="{% url 'chatgpt:chat' %}" method="post" entype="application/x-www-form-urlencoded">
+                    {% csrf_token %}
+                    <div><textarea id="question" name="question" placeholder="질문을 입력해주세요."></textarea></div>
+                    <div class="button-container">
+                        <button class="button-class" id="continue-button" type="submit">이어서 질문</button>
+                        <button class="button-class" id="new-chat-button" type="submit">새 채팅창</button>
+                    </div>
+                </form>
+
+
+                 {% endcomment %}
+
+
+
+
             </div>
         </div>
     </main>
-{% endblock%}
-
+{% endblock %}
