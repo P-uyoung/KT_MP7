@@ -40,3 +40,7 @@ def chat(request):
     }
 
     return render(request, 'gpt/result.html', context) 
+
+
+
+
