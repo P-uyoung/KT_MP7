@@ -22,15 +22,17 @@
         .nav-footer-color {
             background-color: #DEDEE6; 
         }
+
     </style>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
 </head>
 
 <body class="d-flex flex-column h-100">
     <!-- Navbar -->
     <nav class="nav-footer-color navbar navbar-expand-lg fixed-top">
-        <a class="navbar-brand ps-5 fw-bold" href="/">Aivle 4기 16조</a>
+        <a class="navbar-brand ps-5 fw-bold" href="{% url 'home' %}">Home</a>
 
         <ul class="navbar-nav ms-auto pe-5">
             <li class="nav-item dropdown">
@@ -49,7 +51,6 @@
     <!-- Main -->
     {% block content %}
     {% endblock %}
-
     <!-- Footer -->
     <div class="nav-footer-color container-fluid text-center py-3">
         <p class="mb-0">&copy; Aivle 4기 16조</p>
