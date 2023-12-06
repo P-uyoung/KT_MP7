@@ -14,3 +14,21 @@ main {
 .nav-footer-color {
     background-color: #daeed9; 
 }
+
+/* Dark Mode */
+.dark-mode {
+    background-color: black; 
+    color: #fff;
+}
+
+.dark-mode .nav-footer-color {
+    background-color: #333;
+}
+
+.dark-mode svg {
+    fill: #fff; 
+}
+
+.dark-mode .navbar-brand {
+    color: #fff;
+}
