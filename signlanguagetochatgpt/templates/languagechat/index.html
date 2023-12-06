@@ -1,41 +1,52 @@
+{% extends 'layout.html' %}
 {% load static %}
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'languagechat/style.css' %}">
-<script>
-    let idNum = 0;
-    function addFile(){
-        deepCopy();
-    }
-
-    function deepCopy()  {
-      // 'test' node 선택
-      const fileModule = document.getElementById('file-module-'+idNum);
-
-
-
-      // 노드 복사하기 (deep copy)
-      const newNode = fileModule.cloneNode(true);
-
-      console.log(newNode)
-
-      // 복사된 Node id 변경하기
-      idNum++;
-      newNode.id = 'file-module-' + idNum;
-
-      // 복사한 노드 붙여넣기
-      fileModule.after(newNode);
-    }
-</script>
 {% endblock %}
-<form action="chat" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <span id="file-module-0">
-        <fieldset>
-            <legend><h1>파일 업로드</h1></legend>
-            <input name="files" type="file">
-
-        </fieldset>
-    </span>
-    <button onclick="addFile()" type="button">파일 추가 </button>
-    <div><input type="submit" value="ChatGPT에게 수어로 문의하기"></div>
-</form>
+{% block content %}
+    <script>
+        var idNum = [];
+        idNum.push(0);
+        function addFile(){
+            const fileModule = document.getElementById('file-module-'+idNum[idNum.length-1]);
+            // 노드 복사하기 (deep copy)
+            const newNode = fileModule.cloneNode(true);
+            console.log(newNode)
+            // 복사된 Node id 변경하기
+            idNum.push(idNum[idNum.length-1]+1);
+            newNode.id = 'file-module-' + idNum[idNum.length-1];
+            // 복사한 노드 붙여넣기
+            fileModule.after(newNode);
+        }
+        function popFile(){
+            if(idNum.length>1){
+                var parentel = document.getElementById('module-container')
+                var delel = document.getElementById('file-module-'+idNum[idNum.length-1])
+                parentel.removeChild(delel);
+                idNum.pop();
+            }else{alert('파일이 한 개 밖에 없어 삭제할 수 없습니다.');}
+        }
+    </script>
+    <link rel="stylesheet" href="{% static 'languagechat/lchatgpt_style.css' %}">
+    <main class="flex-grow-1">
+        <div class = "container">
+            <div class = "inner_container">
+                <div class = "title">수어 ChatGPT</div>
+                <form class='form' action="chat" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div id='module-container' style="overflow:auto; height:220px; background-color:white; margin:20px;">
+                        <span id="file-module-0">
+                            <fieldset>
+                                <legend><h1>파일 업로드</h1></legend>
+                                <input name="files" type="file">
+                            </fieldset>
+                        </span>
+                    </div>
+                    <button onclick="addFile()" type="button">파일 추가 </button>
+                    <button onclick="popFile()" type="button">파일 삭제 </button>
+                    <div><input id="text-button" type="submit" value="ChatGPT에게 수어로 문의하기"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}
