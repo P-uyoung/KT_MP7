@@ -1,0 +1,4 @@
+.main-down-text:hover span, .main-down-text:hover p{
+    color: black; 
+    font-weight: bold; 
+}

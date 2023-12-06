@@ -1,0 +1,16 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+main {
+    padding-top: 56px;
+    flex: 1;
+}
+.nav-footer-color {
+    background-color: #daeed9; 
+}
