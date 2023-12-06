@@ -1,19 +1,19 @@
 from django.shortcuts import render
 from openai import OpenAI
+from .models import ChatHistory
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="")
 # Create your views here.
-
-
 
 
 #chatGPT에게 채팅 요청 API
 def chatGPT(prompt):
     completion = client.chat.completions.create(model="gpt-3.5-turbo",
     messages=[{"role": "user", "content": prompt}])
-    print(completion)
     result = completion.choices[0].message.content
+    ChatHistory.objects.create(user_message=prompt, gpt_response=result)
     return result
+
 
 #chatGPT에게 그림 요청 API
 def imageGPT(prompt):
