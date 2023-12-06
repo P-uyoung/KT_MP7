@@ -14,16 +14,13 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             # Redirect to a success page or render a different template
-            return redirect('login:success')
+            return redirect('login:home')
         else:
             #messages.error(request, 'Invalid login credentials')
             #return render(request, 'login/index.html')
             pass
             
     return render(request, 'login/index.html')
-# 성공했을시
-def success_view(request):
-    return render(request, 'login/success.html')
 
 # 계정 추가
 def add(request):
@@ -40,7 +37,7 @@ def add(request):
         else:
             new_user = User.objects.create(username=username, email=email, password=password)
             message = "added"
-            return JsonResponse({'message': message})
+            return render(request, 'login/index.html')
     else:
         message = "input all info"
         return JsonResponse({'message': message})
