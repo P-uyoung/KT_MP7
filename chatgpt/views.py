@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from openai import OpenAI
 
-# client = OpenAI(api_key="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")
-client = OpenAI(api_key="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")
 
 
 
