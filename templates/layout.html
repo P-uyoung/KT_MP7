@@ -127,7 +127,7 @@
             aTags.forEach((aTag) => {
                 const id = aTag.id;
                 if (languages[language][id]) {
-                    aTag.innerText = languages[language][id];
+                    aTag.innerHTML = languages[language][id];
                 } 
             });
         }    
