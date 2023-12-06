@@ -2,7 +2,7 @@ from django.shortcuts import render
 from openai import OpenAI
 from .models import ChatHistory
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="-")
 # Create your views here.
 
 
