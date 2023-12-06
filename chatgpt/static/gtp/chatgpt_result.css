@@ -14,19 +14,20 @@
 
 .inner_container {
   font-weight: bold;
-  background-color: #DAE4DA;
-  width: 70%;
+  background-color: #dae4d9;
+  width: 50%;
   height: auto;
   border-radius: 10px;
+  margin: 40px 20px 20px 20px;
 }
 
 .form {
   text-align: center;
 }
 
-.ai_result {
+.chat_history {
   margin: 20px;
-  font-size: x-large;
+  font-size: large;
   font-weight: bold;
 }
 
@@ -59,7 +60,7 @@ textarea {
 .title {
   font-weight: bold;
   margin: 20px;
-  font-size: x-large;
+  font-size: large;
 }
 
 .question{
@@ -72,7 +73,25 @@ textarea {
   margin-bottom: 20px;
 }
 
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid lightgray;
+  color:  #a7b9c1;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin: 10px 10px 10px 10px;
+  color : black;
+}
 
+button:hover {
+  background-color: lightgray;
+  color: #fff;
+}
 /* 네비게이션 바 스타일 */
 .navbar {
 position: absolute;
