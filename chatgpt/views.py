@@ -134,7 +134,7 @@ def rechat(request):
         # 'result': result,
         'chat_history': chat_history,
         'current_session_id' : current_session_id,
-        'sessions' : sessions
+        'sessions' : sessions,
         # 'question': prompt,
         # 'result': result,
         'chat_history': chat_history,
