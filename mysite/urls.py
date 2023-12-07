@@ -14,24 +14,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render
 
+
 def index(request):
-    return render(request,'index.html')
+    return render(request, 'index.html')
+
 
 urlpatterns = [
-    path('',index),
+    path('', index),
     path('admin/', admin.site.urls),
-    path('chatgpt/',include('chatgpt.urls')),
-    path('signlanguagetochatgpt/',include('signlanguagetochatgpt.urls')),
-    path('selfchatgpt/',include('selfchatgpt.urls')),
-    path('selfsignlanguagetochatgpt/',include('selfsignlanguagetochatgpt.urls')),
+    path('chatgpt/', include('chatgpt.urls')),
+    path('signlanguagetochatgpt/', include('signlanguagetochatgpt.urls')),
+    path('selfchatgpt/', include('selfchatgpt.urls')),
+    path('selfsignlanguagetochatgpt/', include('selfsignlanguagetochatgpt.urls')),
+    path('login/', include('login.urls')),
 ]
 
-from django.conf import settings
-from django.conf.urls.static import static
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
