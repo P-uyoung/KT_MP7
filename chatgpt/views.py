@@ -3,9 +3,10 @@ from openai import OpenAI
 from .models import ChatHistory
 from django.db.models import Max
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="")
 # Create your views here.
 
+user_id = "aa_123"
 
 #chatGPT에게 채팅 요청 API
 def chatGPT(prompt):
@@ -56,15 +57,18 @@ def chat(request):
     result = chatGPT(prompt)
     
     # ChatHistory 모델에서 session_id의 최대값을 구함
-    max_session_id = ChatHistory.objects.aggregate(Max('session_id'))['session_id__max']
+
+    # max_session_id = ChatHistory.objects.aggregate(Max('session_id'))['session_id__max']
+    # user_id = request.POST.get('user_id')
+    max_session_id = ChatHistory.objects.filter(user_id=user_id).aggregate(Max('session_id'))['session_id__max']
     # 인스턴스가 없을 경우 max_session_id는 None이 될 것이므로, 이 경우 next_session_id를 1로 설정
     next_session_id = int(max_session_id or 0) + 1
     
     # 새로운 대화 기록을 데이터베이스에 저장
-    ChatHistory.objects.create(session_id=next_session_id, user_message=prompt, gpt_response=result)
+    ChatHistory.objects.create(session_id=next_session_id, user_message=prompt, gpt_response=result, user_id = user_id)
     
     # 현재 세션 ID의 대화 기록만 조회
-    chat_history = ChatHistory.objects.filter(session_id=next_session_id).order_by('created_at')
+    chat_history = ChatHistory.objects.filter(session_id=next_session_id, user_id = user_id).order_by('created_at')
 
     context = {
         # 'question': prompt,
@@ -81,27 +85,28 @@ def rechat(request):
         
         prompt = request.POST.get('question')  # post로 받은 question
         current_session_id = request.POST.get('session_id')
-
+       #/ user_id = request.POST.get('user_id')
         result = chatGPT(prompt)
-        ChatHistory.objects.create(session_id=current_session_id, user_message=prompt, gpt_response=result) # 새로운 대화 기록을 데이터베이스에 저장
+        ChatHistory.objects.create(session_id=current_session_id, user_message=prompt, gpt_response=result, user_id = user_id) # 새로운 대화 기록을 데이터베이스에 저장
         
         
     else:  # 선택된 세션의 채팅 기록을 표시
         current_session_id = request.GET.get('session_id')
-
-    chat_history = ChatHistory.objects.filter(session_id=current_session_id).order_by('created_at')
+        # current_user_id = request.GET.get('user_id')
+    chat_history = ChatHistory.objects.filter(session_id=current_session_id, user_id = user_id).order_by('created_at')
     sessions = ChatHistory.objects.values_list('session_id', flat=True).distinct()
     
     # ChatHistory 모델에서 session_id의 최대값을 구함
-    max_session_id = ChatHistory.objects.aggregate(Max('session_id'))['session_id__max']
+    # max_session_id = ChatHistory.objects.aggregate(Max('session_id'))['session_id__max']
+    max_session_id = ChatHistory.objects.filter(user_id=user_id).aggregate(Max('session_id'))['session_id__max']
     # 인스턴스가 없을 경우 max_session_id는 None이 될 것이므로, 이 경우 next_session_id를 1로 설정
     next_session_id = int(max_session_id or 0) + 1
     
     # 새로운 대화 기록을 데이터베이스에 저장
-    ChatHistory.objects.create(session_id=next_session_id, user_message=prompt, gpt_response=result)
+    ChatHistory.objects.create(session_id=next_session_id, user_message=prompt, gpt_response=result, user_id = user_id)
     
     # 현재 세션 ID의 대화 기록만 조회
-    chat_history = ChatHistory.objects.filter(session_id=next_session_id).order_by('created_at')
+    chat_history = ChatHistory.objects.filter(session_id=next_session_id, user_id=user_id).order_by('created_at')
 
     context = {
         # 'question': prompt,
@@ -143,3 +148,7 @@ def rechat(request):
     }
 
     return render(request, 'gpt/result.html', context) 
+
+
+
+# user_id 별로 세션아이디 존재. 새로운 채팅창 클릭하면 user_id의 세션 아이디 증가
