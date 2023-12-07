@@ -10,11 +10,11 @@
     <main class="flex-grow-1">
         <div class = "container">
             <div class = "inner_container">
-                <div class = "title">ChatGPT에게 질문하기</div>
+                <div id='langquestiontitle' class = "title">ChatGPT에게 질문하기</div>
                 <form class = "form" action="chat" method="post" entype="application/x-www-form-urlencoded">
                     {% csrf_token %}
-                        <div class="question"><textarea  id="question" name="question" placeholder = "질문을 입력해주세요."></textarea></div>
-                        <button id="text-button" type="submit" >질문</button>
+                        <div class="question"><textarea  id="langpquestion" name="question" placeholder = "질문을 입력해주세요."></textarea></div>
+                        <button id="langtextbutton" type="submit" >질문</button>
                 </form>
             </div>
         </div>

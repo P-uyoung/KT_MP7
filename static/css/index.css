@@ -1,4 +1,19 @@
+.text-wrap {
+    word-break: break-all !important; 
+    overflow-wrap: break-word !important;
+}
+
 .main-down-text:hover span, .main-down-text:hover p{
     color: black; 
+    font-weight: bold; 
+}
+
+/* Dark Mode */
+.dark-mode .text-secondary {
+    color: #fff;
+}
+
+.dark-mode .main-down-text:hover span, .dark-mode .main-down-text:hover p{
+    color: #fff; 
     font-weight: bold; 
 }
