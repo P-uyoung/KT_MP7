@@ -6,4 +6,4 @@ class ChatHistory(models.Model):
     user_message = models.TextField()
     gpt_response = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True) # 정렬에 필요
-    user_id = models.CharField(max_length=50)
+    user_id = models.CharField(max_length=50, default='unknown')
