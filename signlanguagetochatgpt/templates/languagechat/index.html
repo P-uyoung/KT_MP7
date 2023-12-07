@@ -111,21 +111,29 @@
             var sbt=document.getElementById('text-button');
             sbt.click();
         }
-        
+        function imgchange(event){
+            if(event.target.files && event.target.files[0]){
+                var reader = new FileReader();
+                reader.onload = e => {
+                    const previewImage = event.target.nextSibling.nextSibling;
+                    previewImage.src = e.target.result;
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            }else{const previewImage = event.target.nextSibling.nextSibling;
+                previewImage.src = '';}
+        }
     </script>
     <link rel="stylesheet" href="{% static 'languagechat/lchatgpt_style.css' %}">
     <main class="flex-grow-1">
         <div class = "container">
             <div class = "inner_container">
-                <div class = "title" id='langlstitle'>수어 ChatGPT</div>
+                <div class = "title" id='langlstitle' style='height: 30%;'>수어 ChatGPT</div>
                 <form class='form' action="chat" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div id='module-container' style="overflow:auto; height:220px; background-color:white; margin:20px;">
-                        <span id="file-module-0">
-                            <fieldset>
-                                <legend><h1 id='langlslg'>파일 업로드</h1></legend>
-                                <input name="files" type="file" defaultValue='추가'>
-                            </fieldset>
+                    <div id='module-container' style="white-space:nowrap; overflow:auto;  height: 30%; width:96%; background-color:white; margin:20px;">
+                        <span id="file-module-0" style='width:88px;height:120px; flex-direction:column;display:inline-flex;text-align: center;margin-left:10px;margin-right:10px;'>
+                            <input name="files" type="file" defaultValue='추가' onchange='imgchange(event);'>
+                            <img id='newimg' src='' style='width:85px; heigth:70px;'/>
                         </span>
                     </div>
                     <button onclick="addFile()" type="button" id='langlsfileadd' style='background-color: #dae4d9;

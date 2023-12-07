@@ -3,7 +3,7 @@ from openai import OpenAI
 from .models import ChatHistory
 from django.db.models import Max
 
-client = OpenAI(api_key="")
+client = OpenAI(api_key="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")
 # Create your views here.
 
 
