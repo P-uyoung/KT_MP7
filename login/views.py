@@ -8,13 +8,18 @@ from django.contrib import messages
 #로그인
 def login(request):
     if request.method == 'POST':
-        username = request.POST.get('username',None)
-        password = request.POST.get('password',None)
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            auth_login(request, user)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        if username is not None:
+            existing_user = User.objects.filter(username=username).exists()
             # Redirect to a success page or render a different template
-            return redirect('login:home')
+            if existing_user:
+                request.session.clear()
+                #request.session['username'] = username
+                return redirect('home')
+            else:
+                pass
         else:
             #messages.error(request, 'Invalid login credentials')
             #return render(request, 'login/index.html')
@@ -36,12 +41,9 @@ def add(request):
             return JsonResponse({'message': message})
         else:
             new_user = User.objects.create(username=username, email=email, password=password)
+            new_user.save()
             message = "added"
             return render(request, 'login/index.html')
     else:
         message = "input all info"
         return JsonResponse({'message': message})
-    
-    
-    
-
