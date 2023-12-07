@@ -1,7 +1,7 @@
+{% extends 'layout.html' %}
 {% load static %}
-{% block extrahead %}
-<link rel="stylesheet" href="{% static 'gtp/style.css' %}">
-{% endblock %}
+
+{% block content %}
 <form action="chat" method="post" entype="application/x-www-form-urlencoded">
     {% csrf_token %}
     <div id="file-module-0">
@@ -10,4 +10,4 @@
     </div>
     <div><button id="text-button" type="submit" >질문</button></div>
 </form>
-
+{% endblock %}

@@ -1,20 +1,15 @@
 {% extends 'layout.html' %}
 {% load static %}
-{% block extrahead %}
-{% endblock %}
-
-<!-- 디자인은 수정될 예정 -->
-
 {% block content %}
     <link rel="stylesheet" href="{% static 'gtp/chatgpt_style.css' %}">
     <main class="flex-grow-1">
-        <div class = "container">
-            <div class = "inner_container">
-                <div id='langquestiontitle' class = "title">ChatGPT에게 질문하기</div>
+        <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
+            <div class="text-secondary">
+                <div id='langquestiontitle' class="title">ChatGPT에게 질문하기</div>
                 <form class = "form" action="chat" method="post" entype="application/x-www-form-urlencoded">
                     {% csrf_token %}
                         <div class="question"><textarea  id="langpquestion" name="question" placeholder = "질문을 입력해주세요."></textarea></div>
-                        <button id="langtextbutton" type="submit" >질문</button>
+                        <button class="btn btn-outline-secondary" id="langtextbutton" type="submit">질문</button>
                 </form>
             </div>
         </div>
