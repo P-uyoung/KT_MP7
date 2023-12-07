@@ -1,0 +1,51 @@
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'selflanguagechat/style.css' %}">
+<style>
+    #fileadd{
+        visibility:hidden;
+        width:0;
+    }
+</style>
+<script>
+    let idNum = 0;
+    let filearr = [];
+    function addFile(){
+        document.getElementById('fileadd').click();
+    }
+    function fileaddclick(event){
+        if (event.target.files){
+            filearr.push(event.target);
+            displayarr();
+        }   
+    }
+    function displayarr(){
+        var parentel = document.getElementById('img_container');
+        parentel.replaceChildren();
+        var i = 0;
+        while(i<filearr.length){
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var img = document.createElement("img");
+                img.setAttribute("src", filearr[i]);
+                img.setAttribute('height',60);
+                img.setAttribute('width',60);
+                parentel.appendChild(img);
+            };
+            reader.readAsDataURL(filearr[i].files[0]);
+            i=i+1;
+        }
+    }
+</script>
+{% endblock %}
+<input type='file' id='fileadd' onchange='fileaddclick(event);'>
+<form action="chat" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset>
+        <span id='img_container'>
+
+        </span>
+        <button onclick='addFile()' type='button'><img src='{% static "selflanguagechat/plus64.png" %}'/></button>
+    </fieldset>
+    <div><input type="submit" value="ChatGPT에게 수어로 문의하기"></div>
+</form>

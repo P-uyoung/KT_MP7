@@ -1,16 +1,47 @@
+{% extends 'layout.html' %}
 {% load static %}
-{% block extrahead %}
-<link rel="stylesheet" href="{% static 'gtp/style.css' %}">
-{% endblock %}
-<form action="chat" method="post" entype="application/x-www-form-urlencoded">
-    {% csrf_token %}
-    <div id="file-module-0">
-        <label>chatgtp에게 요청하기</label>
-        <textarea id="question" name="question">{{question}}</textarea>
+
+{% block content %}
+<main class="flex-grow-1">
+    <div class="container">
+        <div class="row justify-content-center"> 
+            <div class="col-6"> 
+                <div class="mt-3 mb-3">
+                    <!-- 세션 또는 주제 선택 -->
+                    <form action="rechat" method="get" class="mb-3 d-flex justify-content-center">
+                        <div class="input-group flex-grow-1" style="max-width: 200px;">
+                            <select name="session_id" class="form-select">
+                                {% for session_id in sessions %}
+                                    <option value="{{ session_id }}" {% if session_id == current_session_id %}selected{% endif %}>{{ session_id }}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn btn-outline-secondary">세션 선택</button>
+                        </div>
+                    </form>
+
+                    <!-- 이전 대화 내용 표시 -->
+                    <div class="mb-3">
+                        {% for chat in chat_history %}
+                            <div class="mb-2"><strong>User:</strong> {{ chat.user_message }}</div>
+                            <div class="mb-2"><strong>GPT:</strong> {{ chat.gpt_response }}</div>
+                            <hr>
+                        {% endfor %}
+                    </div>
+
+                    <!-- "이어서 질문하기" 폼 -->
+                    <form action="rechat" method="post" class="mb-3" enctype="application/x-www-form-urlencoded">
+                        {% csrf_token %}
+                        <input type="hidden" name="session_id" value="{{ current_session_id }}">
+                        <textarea class="form-control mb-2" id="question" name="question" placeholder="질문을 입력해주세요." rows="3"></textarea>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-outline-primary me-2" id="continue-button" type="submit">이어서 질문</button>
+                            <!-- "새 채팅창" 버튼 -->
+                            <button class="btn btn-outline-success" id="new-chat-button" onclick="window.location.href='/chatgpt'">새 채팅창</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-      <label>응답</label>
-      <span id="result">{{result}}</span>
-  </div>
-    <div><button id="text-button" type="submit" >질문</button></div>
-</form>
+</main>
+{% endblock %}

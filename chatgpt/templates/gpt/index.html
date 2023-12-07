@@ -1,26 +1,22 @@
+{% extends 'layout.html' %}
 {% load static %}
 {% block content %}
     <link rel="stylesheet" href="{% static 'gtp/chatgpt_style.css' %}">
-    <main class="flex-grow-1">
-        <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
-            <div class="text-secondary">
-                <div id='langquestiontitle' class="title">ChatGPT에게 질문하기</div>
-                <form class = "form" action="chat" method="post" entype="application/x-www-form-urlencoded">
-                    {% csrf_token %}
-                        <div class="question"><textarea  id="langpquestion" name="question" placeholder = "질문을 입력해주세요."></textarea></div>
+    <main class="d-flex align-items-center justify-content-center" style="height: 80vh;">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <h2 id='langquestiontitle' class="mb-4">ChatGPT에게 질문하기</h2>
+                    <form action="chat" method="post" enctype="application/x-www-form-urlencoded">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <textarea class="form-control" id="langpquestion" name="question" placeholder="질문을 입력해주세요." rows="4"></textarea>
+                        </div>
                         <button class="btn btn-outline-secondary" id="langtextbutton" type="submit">질문</button>
-                </form>
-            </div>
+                    </form>
+                </div>
+             </div>
         </div>
     </main>
-
 {% endblock %}
-<form action="chat" method="post" entype="application/x-www-form-urlencoded">
-    {% csrf_token %}
-    <div id="file-module-0">
-        <label>chatgtp에게 요청하기</label>
-        <textarea id="question" name="question"></textarea>
-    </div>
-    <div><button id="text-button" type="submit" >질문</button></div>
-</form>
 
