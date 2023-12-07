@@ -26,7 +26,7 @@ def index(request):
 
 
 urlpatterns = [
-    path('', index),
+    path('', index, name='home'),
     path('admin/', admin.site.urls),
     path('chatgpt/', include('chatgpt.urls')),
     path('signlanguagetochatgpt/', include('signlanguagetochatgpt.urls')),

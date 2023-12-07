@@ -5,7 +5,7 @@ from django.db.models import Max
 from login.models import User
 
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 # Create your views here.
 
 
