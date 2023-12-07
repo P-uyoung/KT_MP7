@@ -12,6 +12,10 @@
     <link href="{% static 'css/index.css' %}" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script>
+        var savedUsername = "{{ request.session.username }}";
+        console.log(savedUsername); // 세션 값 console에 출력
+    </script>
 </head>
 
 <body class="d-flex flex-column h-100">
