@@ -8,6 +8,7 @@
     <main class="flex-grow-1">
         <div class="container">
             <div class="inner_container">
+
                 <div class="image_container">
                     {% if image_url %}
                         <img id="input-image" class="card-img-top" src="{{image_url}}" alt="입력 이미지" style="width: 200px; height: auto;"/>
@@ -16,9 +17,13 @@
                     {% endif %}
                 </div>
                 <div class="ai_result">응답 : {{result}}</div>
+                
+
+                <!-- "이전으로 돌아가기" 버튼 -->
                 <div class="title">
                     <button type="submit" id="go_back" onclick="history.back()">이전으로 돌아가기</button>
-                </div>                               
+                </div>
+                
             </div>
         </div>
     </main>
