@@ -48,7 +48,7 @@ def chat(request):
             # mlflow 로딩
             mlflow_uri="http://mini7-mlflow.carpediem.so/"
             mlflow.set_tracking_uri(mlflow_uri)
-            model_uri = "models:/Sign_Signal/production"
+            model_uri = "models:/Sign_Signal/Archived"
             model = mlflow.keras.load_model(model_uri)
 
 

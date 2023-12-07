@@ -12,7 +12,7 @@
     height: 100%;
   }
 
-  .inner_container {
+.inner_container {
     font-weight: bold;
     background-color: #DAE4DA;
     width: 70%;
@@ -20,11 +20,11 @@
     border-radius: 10px;
 }
   
-  .form {
+.form {
     text-align: center;
-  }
+}
   
-  textarea {
+textarea {
     width: 80%;
     height: 100px;
     margin-bottom: 10px;
@@ -32,9 +32,9 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: none;
-  }
+}
   
-  #text-button {
+#text-button {
     background-color: #dae4d9;
     color: #333;
     padding: 10px 20px;
@@ -45,7 +45,7 @@
     margin-top: 20px;
   }
   
-  #text-button:hover {
+#text-button:hover {
     background-color: #a5bfb4;
   }
   

@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>Aivle 4기 16조</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
     <meta charset="utf-8">
     <!-- Custom CSS -->
     <link href="{% static 'css/layout.css' %}" rel="stylesheet">
@@ -15,19 +17,38 @@
 <body class="d-flex flex-column h-100">
     <!-- Navbar -->
     <nav class="nav-footer-color navbar navbar-expand-lg fixed-top">
-        <a class="navbar-brand ps-5 fw-bold" href="/">Aivle 4기 16조</a>
+        <a id='langnav' class="navbar-brand ps-5 fw-bold" href="/">Aivle 4기 16조</a>
 
-        <ul class="navbar-nav ms-auto pe-5">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <ul class="navbar-nav ms-auto pe-5 gap-4">
+            <!-- Mode Selection -->
+            <li id="mode-selection" class="nav-item d-flex align-items-center">
+                <a class="nav-link p-0" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+                        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+                    </svg>
+                </a>
+            </li>
+
+            <!-- Language -->
+            <li id="change-language" class="nav-item d-flex align-items-center">
+                <a class="nav-link p-0" href="#" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
+                    </svg>
+                </a>
+            </li>
+            
+            <!-- Profile -->
+            <li class="nav-item d-flex align-items-center dropdown">
+                <a class="nav-link p-0" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                       <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/>
                     </svg>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">회원가입</a></li>
+                    <li><a id='langsignin' class="dropdown-item" href="#">회원가입</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="login">로그인</a></li>
+                    <li><a id='langlogin' class="dropdown-item" href="#">로그인</a></li>
                 </ul>
             </li>
         </ul>
@@ -38,10 +59,83 @@
 
     <!-- Footer -->
     <div class="nav-footer-color container-fluid text-center py-3">
-        <p class="mb-0">&copy; Aivle 4기 16조</p>
+        <p id='langfooter' class="mb-0">&copy; Aivle 4기 16조</p>
     </div>
 </body>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 다크 모드 설정
+        document.querySelector('#mode-selection').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            var icon = this.querySelector('svg');
+            var isDarkmode = icon.classList.contains('bi-moon');
+
+            if (isDarkmode) {
+                // bi-moon 아이콘을 bi-brightness-high 아이콘으로 변경
+                icon.innerHTML = '<path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>';
+                icon.classList.remove('bi-moon');
+                icon.classList.add('bi-brightness-high');
+            } else {
+                // bi-brightness-high 아이콘을 bi-moon 아이콘으로 변경
+                icon.innerHTML = '<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278M4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>';
+                icon.classList.remove('bi-brightness-high');
+                icon.classList.add('bi-moon');
+            }
+        });
+
+        // 언어 변경
+        const languages = {
+            "en": {
+                langnav: "Aivle 4th Team 16",
+                langsignin: "signin",
+                langlogin: "login",
+                langfooter: "\u00A9 Aivle 4th Team 16",
+                langtitle: "ChatGPT with sign language.",
+                langdetail: "\u00A0 A new technology combining sign language has resulted in a ChatGPT conversational service using sign language. Providing a novel approach to accessing information for sign language users, it takes inclusivity in technology to the next level. Engage in a conversation using sign language with ChatGPT and explore a new way of interacting with information!",
+                langchatgpttitle: "ChatGPT.",
+                langchatgpt: "Conversation with ChatGPT.",
+                langchatgptsgintitle:"Sign Language ChatGPT",
+                langchatgptsgin: "Conversation with ChatGPT in sign language!",                
+            },
+            "ko": {
+                langnav: "Aivle 4기 16조",
+                langsignin: "회원가입",
+                langlogin: "로그인",
+                langfooter: "\u00A9 Aivle 4기 16조",
+                langtitle: "수어를 통한 ChatGPT 대화",
+                langdetail:"\u00A0 새로운 기술의 결합으로 탄생한 수어를 이용한 ChatGPT 대화 서비스입니다. 수어 사용자들에게 새로운 정보 접근 방식을 제공하며, 기술의 포용성을 한 단계 높이고 있습니다. ChatGPT를 사용하여 수어를 사용해서 대화해 보세요!",
+                langchatgpt: "ChatGPT.",
+                langchatgpt: "ChatGPT를 사용하여 언어 모델과 대화해보세요!",
+                langchatgptsgintitle:"수어 ChatGPT",
+                langchatgptsgin: "수어로 ChatGPT와 대화해보세요!", 
+            }
+        };
+
+        let currentLanguage = localStorage.getItem('language') || 'ko'; // 로컬 스토리지에서 언어 가져오기
+        changeLanguage(currentLanguage);
+
+       // 언어 변경 함수
+        document.querySelector('#change-language').addEventListener('click', function () {
+            currentLanguage = currentLanguage === 'ko' ? 'en' : 'ko';
+            localStorage.setItem('language', currentLanguage); // 로컬 스토리지에 언어 저장
+            changeLanguage(currentLanguage);
+        });
+    
+        function changeLanguage(language) {
+            const aTags = document.querySelectorAll("[id*=lang]");
+            // 각각의 a 태그에 대해 텍스트 변경
+            aTags.forEach((aTag) => {
+                const id = aTag.id;
+                if (languages[language][id]) {
+                    aTag.innerText = languages[language][id];
+                }
+            }
+        )
+        }
+    });        
+</script>
 </html>

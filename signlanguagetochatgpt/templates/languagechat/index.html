@@ -26,25 +26,139 @@
                 idNum.pop();
             }else{alert('파일이 한 개 밖에 없어 삭제할 수 없습니다.');}
         }
+        document.addEventListener('DOMContentLoaded', function() {
+            // 다크 모드 설정
+            document.querySelector('#mode-selection').addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                
+                var icon = this.querySelector('svg');
+                var isDarkmode = icon.classList.contains('bi-moon');
+    
+                if (isDarkmode) {
+                    // bi-moon 아이콘을 bi-brightness-high 아이콘으로 변경
+                    icon.innerHTML = '<path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>';
+                    icon.classList.remove('bi-moon');
+                    icon.classList.add('bi-brightness-high');
+                } else {
+                    // bi-brightness-high 아이콘을 bi-moon 아이콘으로 변경
+                    icon.innerHTML = '<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278M4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>';
+                    icon.classList.remove('bi-brightness-high');
+                    icon.classList.add('bi-moon');
+                }
+            });
+    
+            // 언어 변경
+            const languages = {
+                "en": {
+                    langnav: "Aivle 4th Team 16",
+                    langsignin: "signin",
+                    langlogin: "login",
+                    langfooter: "\u00A9 Aivle 4th Team 16",
+                    langtitle: "ChatGPT with sign language.",
+                    langdetail: "\u00A0 A new technology combining sign language has resulted in a ChatGPT conversational service using sign language. Providing a novel approach to accessing information for sign language users, it takes inclusivity in technology to the next level. Engage in a conversation using sign language with ChatGPT and explore a new way of interacting with information!",
+                    langchatgpttitle: "ChatGPT.",
+                    langchatgpt: "Conversation with ChatGPT.",
+                    langchatgptsgintitle:"Sign Language ChatGPT",
+                    langchatgptsgin: "Conversation with ChatGPT in sign language!",
+                    langlstitle:'ChatGPT with Sign Language',
+                    langlslg:'File Upload',
+                    langlsfileadd:'File Add',
+                    langlsfiledel:'File Delete',
+                    langlssubmit:'Quest to ChatGPT!',
+                },
+                "ko": {
+                    langnav: "Aivle 4기 16조",
+                    langsignin: "회원가입",
+                    langlogin: "로그인",
+                    langfooter: "\u00A9 Aivle 4기 16조",
+                    langtitle: "수어를 통한 ChatGPT 대화",
+                    langdetail:"\u00A0 새로운 기술의 결합으로 탄생한 수어를 이용한 ChatGPT 대화 서비스입니다. 수어 사용자들에게 새로운 정보 접근 방식을 제공하며, 기술의 포용성을 한 단계 높이고 있습니다. ChatGPT를 사용하여 수어를 사용해서 대화해 보세요!",
+                    langchatgpt: "ChatGPT.",
+                    langchatgpt: "ChatGPT를 사용하여 언어 모델과 대화해보세요!",
+                    langchatgptsgintitle:"수어 ChatGPT",
+                    langchatgptsgin: "수어로 ChatGPT와 대화해보세요!", 
+                    langlstitle:'수어 ChatGPT',
+                    langlslg:'파일 업로드',
+                    langlsfileadd:'파일 추가',
+                    langlsfiledel:'파일 삭제',
+                    langlssubmit:'ChatGPT에게 수어로 문의하기',
+                }
+            };
+    
+            let currentLanguage = localStorage.getItem('language') || 'ko'; // 로컬 스토리지에서 언어 가져오기
+            changeLanguage(currentLanguage);
+    
+           // 언어 변경 함수
+            document.querySelector('#change-language').addEventListener('click', function () {
+                currentLanguage = currentLanguage === 'ko' ? 'en' : 'ko';
+                localStorage.setItem('language', currentLanguage); // 로컬 스토리지에 언어 저장
+                changeLanguage(currentLanguage);
+            });
+        
+            function changeLanguage(language) {
+                const aTags = document.querySelectorAll("[id*=lang]");
+                // 각각의 a 태그에 대해 텍스트 변경
+                aTags.forEach((aTag) => {
+                    const id = aTag.id;
+                    if (languages[language][id]) {
+                        aTag.innerText = languages[language][id];
+                    }
+                }
+            )
+            }
+        });
+        function submitbtn(){
+            var sbt=document.getElementById('text-button');
+            sbt.click();
+        }
+        
     </script>
     <link rel="stylesheet" href="{% static 'languagechat/lchatgpt_style.css' %}">
     <main class="flex-grow-1">
         <div class = "container">
             <div class = "inner_container">
-                <div class = "title">수어 ChatGPT</div>
+                <div class = "title" id='langlstitle'>수어 ChatGPT</div>
                 <form class='form' action="chat" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div id='module-container' style="overflow:auto; height:220px; background-color:white; margin:20px;">
                         <span id="file-module-0">
                             <fieldset>
-                                <legend><h1>파일 업로드</h1></legend>
-                                <input name="files" type="file">
+                                <legend><h1 id='langlslg'>파일 업로드</h1></legend>
+                                <input name="files" type="file" defaultValue='추가'>
                             </fieldset>
                         </span>
                     </div>
-                    <button onclick="addFile()" type="button">파일 추가 </button>
-                    <button onclick="popFile()" type="button">파일 삭제 </button>
-                    <div><input id="text-button" type="submit" value="ChatGPT에게 수어로 문의하기"></div>
+                    <button onclick="addFile()" type="button" id='langlsfileadd' style='background-color: #dae4d9;
+                    color: #333;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    background-color: white;
+                    font-weight: bold;'>파일 추가 </button>
+                    <button onclick="popFile()" type="button" id='langlsfiledel' style='background-color: #dae4d9;
+                    color: #333;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    background-color: white;
+                    font-weight: bold;'>파일 삭제 </button>
+                    <div>
+                        <input type="submit" id='text-button' style='display:none;'>
+                        <button onclick='submitbtn();' id='langlssubmit' style='background-color: #dae4d9;
+                        color: #333;
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        background-color: white;
+                        font-weight: bold;
+                        margin-top:15px;'>ChatGPT에게 수어로 문의하기</label>
+                    </div>
                 </form>
             </div>
         </div>
