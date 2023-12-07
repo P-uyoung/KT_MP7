@@ -1,0 +1,98 @@
+
+.container {
+    font-family: Arial, sans-serif;
+    background-color: white; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .inner_container {
+    font-weight: bold;
+    background-color: #DAE4DA;
+    width: 70%;
+    height: 70%;
+    border-radius: 10px;
+}
+  
+  .form {
+    text-align: center;
+  }
+  
+  textarea {
+    width: 80%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  #text-button {
+    background-color: #dae4d9;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #text-button:hover {
+    background-color: #a5bfb4;
+  }
+  
+  .title {
+    height: 40%;
+    font-weight: bold;
+    margin: 20px;
+    font-size: xx-large;
+}
+
+#question{
+  margin: 20px;
+}
+
+#text-button{
+  background-color: white;
+  font-weight: bold;
+}
+
+
+  /* 네비게이션 바 스타일 */
+.navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline;
+  margin-left: 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.nav-icon {
+  width: 20px;  /* 너비 조절 */
+  height: 20px; /* 높이 조절 */
+  vertical-align: middle;
+}
