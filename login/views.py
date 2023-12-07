@@ -16,7 +16,7 @@ def login(request):
             # Redirect to a success page or render a different template
             if existing_user:
                 request.session.clear()
-                #request.session['username'] = username
+                request.session['username'] = username
                 return redirect('home')
             else:
                 pass
